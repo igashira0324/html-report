@@ -1,0 +1,831 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Antigravity vs Gemini CLI: バイブコーディング最適運用戦略</title>
+    <style>
+        :root {
+            --primary-color: #1a73e8;
+            --secondary-color: #34a853;
+            --accent-color: #ea4335;
+            --background-color: #f8f9fa;
+            --card-background: #ffffff;
+            --text-color: #202124;
+            --text-secondary: #5f6368;
+            --border-color: #dadce0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Hiragino Sans', 'Meiryo', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* ヘッダー */
+        header {
+            background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .subtitle {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 20px;
+            margin-top: 15px;
+        }
+
+        /* インフォグラフィック画像セクション */
+        .infographic-section {
+            background: var(--card-background);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .infographic-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .infographic-image {
+            width: 100%;
+            max-width: 900px;
+            margin: 20px auto;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        /* 比較テーブル */
+        .comparison-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-section {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        .tool-card {
+            background: var(--card-background);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .tool-card.antigravity {
+            border-top: 5px solid var(--primary-color);
+        }
+
+        .tool-card.gemini-cli {
+            border-top: 5px solid var(--secondary-color);
+        }
+
+        .tool-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tool-card.antigravity h3 {
+            color: var(--primary-color);
+        }
+
+        .tool-card.gemini-cli h3 {
+            color: var(--secondary-color);
+        }
+
+        .tool-card .tagline {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tool-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tool-card li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .tool-card.antigravity li::before {
+            content: "✈️";
+            position: absolute;
+            left: 0;
+        }
+
+        .tool-card.gemini-cli li::before {
+            content: "🔧";
+            position: absolute;
+            left: 0;
+        }
+
+        /* フェーズセクション */
+        .phase-section {
+            background: var(--card-background);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .phase-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .phase-timeline {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .phase-timeline::before {
+            content: "";
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            right: 10%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            z-index: 0;
+        }
+
+        .phase-item {
+            text-align: center;
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .phase-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .phase-item:nth-child(1) .phase-icon {
+            background: linear-gradient(135deg, #1a73e8, #4285f4);
+        }
+
+        .phase-item:nth-child(2) .phase-icon {
+            background: linear-gradient(135deg, #fbbc04, #f9ab00);
+        }
+
+        .phase-item:nth-child(3) .phase-icon {
+            background: linear-gradient(135deg, #34a853, #0f9d58);
+        }
+
+        .phase-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--text-color);
+        }
+
+        .phase-item p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .phase-item .tool-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .phase-item:nth-child(1) .tool-badge,
+        .phase-item:nth-child(2) .tool-badge {
+            background: #e8f0fe;
+            color: var(--primary-color);
+        }
+
+        .phase-item:nth-child(3) .tool-badge {
+            background: #e6f4ea;
+            color: var(--secondary-color);
+        }
+
+        /* スイッチング戦略 */
+        .switching-section {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border: 2px solid #ffb74d;
+        }
+
+        .switching-section h2 {
+            color: #e65100;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quota-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .quota-box {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            min-width: 150px;
+        }
+
+        .quota-box h4 {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .quota-bar {
+            display: flex;
+            gap: 4px;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .quota-segment {
+            width: 20px;
+            height: 40px;
+            border-radius: 4px;
+        }
+
+        .quota-box.antigravity .quota-segment {
+            background: #ea4335;
+        }
+
+        .quota-box.antigravity .quota-segment:last-child {
+            background: #fce8e6;
+        }
+
+        .quota-box.gemini .quota-segment {
+            background: var(--secondary-color);
+        }
+
+        .switch-arrow {
+            font-size: 2.5rem;
+            color: #ff9800;
+        }
+
+        /* 詳細解説セクション */
+        .explanation-section {
+            background: var(--card-background);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .explanation-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .explanation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .explanation-card {
+            background: var(--background-color);
+            border-radius: 12px;
+            padding: 25px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .explanation-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .explanation-card p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .explanation-card ul {
+            padding-left: 20px;
+        }
+
+        .explanation-card li {
+            margin-bottom: 8px;
+            color: var(--text-color);
+        }
+
+        /* 用語解説 */
+        .glossary-section {
+            background: #e8f5e9;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border: 2px solid #a5d6a7;
+        }
+
+        .glossary-section h2 {
+            color: #2e7d32;
+            margin-bottom: 20px;
+        }
+
+        .glossary-item {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .glossary-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .glossary-item h4 {
+            color: #1b5e20;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .glossary-item p {
+            color: var(--text-secondary);
+        }
+
+        /* 推奨ワークフロー */
+        .workflow-section {
+            background: var(--card-background);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .workflow-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+        }
+
+        .workflow-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .workflow-step {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            padding: 20px;
+            background: var(--background-color);
+            border-radius: 12px;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            color: var(--text-color);
+            margin-bottom: 8px;
+        }
+
+        .step-content p {
+            color: var(--text-secondary);
+        }
+
+        .step-tool {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+
+        .step-tool.antigravity {
+            background: #e8f0fe;
+            color: var(--primary-color);
+        }
+
+        .step-tool.gemini {
+            background: #e6f4ea;
+            color: var(--secondary-color);
+        }
+
+        /* フッター */
+        footer {
+            background: var(--text-color);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer p {
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: #8ab4f8;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* アニメーション */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .phase-timeline {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .phase-timeline::before {
+                display: none;
+            }
+
+            .quota-diagram {
+                flex-direction: column;
+            }
+
+            .switch-arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🚀 Google Antigravity vs Gemini CLI</h1>
+            <p>バイブコーディング最適運用戦略</p>
+            <div class="subtitle">IDEとCLIの効果的な用途別の活用方法</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- インフォグラフィック画像 -->
+        <section class="infographic-section fade-in">
+            <h2>📊 インフォグラフィック概要</h2>
+            <img src="https://www.genspark.ai/api/files/s/S6VtWMrd" alt="Google Antigravity vs Gemini CLI インフォグラフィック" class="infographic-image">
+            <p style="text-align: center; color: var(--text-secondary); margin-top: 15px;">
+                ※ 上図は開発フェーズ別のツール使い分け戦略を視覚化したものです
+            <img src="./info.jpg" alt="追加情報" class="infographic-image" style="margin-top: 30px; max-width: 800px;">
+            </p>
+
+        </section>
+
+        <!-- ツール比較 -->
+        <section class="comparison-section">
+            <div class="tool-card antigravity fade-in">
+                <h3>✈️ ANTIGRAVITY</h3>
+                <p class="tagline">自律型「頭脳」IDE</p>
+                <ul>
+                    <li><strong>マルチエージェント計画</strong><br>複数のAIエージェントが協調して複雑なタスクを処理</li>
+                    <li><strong>ゼロイチ開発・PoC</strong><br>アイデアから動くプロトタイプまでを一気に構築</li>
+                    <li><strong>大規模機能追加</strong><br>既存プロジェクトへの大きな機能拡張に最適</li>
+                    <li><strong>ブラウザ検証まで完結</strong><br>コード生成から動作確認までIDE内で完結</li>
+                </ul>
+            </div>
+
+            <div class="tool-card gemini-cli fade-in">
+                <h3>⌨️ GEMINI CLI</h3>
+                <p class="tagline">ターミナル中心の「手」</p>
+                <ul>
+                    <li><strong>既存環境統合</strong><br>現在の開発環境やワークフローにシームレスに統合</li>
+                    <li><strong>小回り修正・デバッグ</strong><br>ピンポイントの修正や問題解決に素早く対応</li>
+                    <li><strong>スクリプト自動化</strong><br>定型作業の自動化やバッチ処理に強み</li>
+                    <li><strong>微調整向き</strong><br>細かな調整や反復的な改善作業に最適</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 開発フェーズ別戦略 -->
+        <section class="phase-section fade-in">
+            <h2>🎯 開発フェーズ別ハイブリッド戦略</h2>
+            <div class="phase-timeline">
+                <div class="phase-item">
+                    <div class="phase-icon">🤖</div>
+                    <h4>STAGE 1</h4>
+                    <p><strong>ゼロ → PoC</strong></p>
+                    <p>（大規模タスク）</p>
+                    <p style="margin-top: 10px; font-size: 0.85rem;">要件定義・全体設計・実装</p>
+                    <span class="tool-badge">ANTIGRAVITY</span>
+                </div>
+                <div class="phase-item">
+                    <div class="phase-icon">🔄</div>
+                    <h4>STAGE 2</h4>
+                    <p><strong>PoC完了 → 移行</strong></p>
+                    <p>（中規模タスク）</p>
+                    <p style="margin-top: 10px; font-size: 0.85rem;">機能拡張・リファクタリング</p>
+                    <span class="tool-badge">ANTIGRAVITY</span>
+                </div>
+                <div class="phase-item">
+                    <div class="phase-icon">🔧</div>
+                    <h4>STAGE 3</h4>
+                    <p><strong>磨き込み・運用</strong></p>
+                    <p>（小規模タスク）</p>
+                    <p style="margin-top: 10px; font-size: 0.85rem;">UI微調整・バグ潰し・README</p>
+                    <span class="tool-badge">GEMINI CLI</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- スイッチング戦略 -->
+        <section class="switching-section fade-in">
+            <h2>🔋 無料枠リソースのスイッチング運用</h2>
+            <p>制限到達時にツールを切り替えて継続的な開発を実現する戦略です。</p>
+            
+            <div class="quota-diagram">
+                <div class="quota-box antigravity">
+                    <h4>Antigravity Quota</h4>
+                    <p style="font-size: 0.8rem; color: var(--text-secondary);">(Rolling)</p>
+                    <div class="quota-bar">
+                        <div class="quota-segment"></div>
+                        <div class="quota-segment"></div>
+                        <div class="quota-segment"></div>
+                        <div class="quota-segment"></div>
+                        <div class="quota-segment"></div>
+                    </div>
+                    <p style="font-size: 0.85rem;">制限に到達...</p>
+                </div>
+                
+                <div class="switch-arrow">⇄</div>
+                
+                <div class="quota-box gemini">
+                    <h4>CLI Quota</h4>
+                    <p style="font-size: 0.8rem; color: var(--text-secondary);">(Rate Limit)</p>
+                    <div class="quota-bar">
+                        <div class="quota-segment"></div>
+                        <div class="quota-segment"></div>
+                        <div class="quota-segment"></div>
+                        <div class="quota-segment"></div>
+                        <div class="quota-segment"></div>
+                    </div>
+                    <p style="font-size: 0.85rem;">余裕あり！</p>
+                </div>
+            </div>
+            
+            <p style="text-align: center; font-weight: bold; color: #e65100;">
+                💡 ポイント：両ツールの無料枠は別カウント。賢く切り替えて開発効率を最大化！
+            </p>
+        </section>
+
+        <!-- 詳細解説 -->
+        <section class="explanation-section fade-in">
+            <h2>📖 詳細解説</h2>
+            <div class="explanation-grid">
+                <div class="explanation-card">
+                    <h4>🧠 IDEとCLIの本質的な違い</h4>
+                    <p>Antigravity（IDE型）は「考える」ツール、Gemini CLI（CLI型）は「実行する」ツールと捉えると分かりやすいです。</p>
+                    <ul>
+                        <li>IDE型：プロジェクト全体を俯瞰した意思決定</li>
+                        <li>CLI型：具体的なコマンドの素早い実行</li>
+                    </ul>
+                </div>
+                
+                <div class="explanation-card">
+                    <h4>⚡ バイブコーディングとは</h4>
+                    <p>AIに自然言語で指示を出し、コードを生成させる開発スタイルです。</p>
+                    <ul>
+                        <li>従来：コードを1行ずつ書く</li>
+                        <li>バイブ：意図を伝えてAIに生成させる</li>
+                        <li>人間は設計・レビュー・方向修正に集中</li>
+                    </ul>
+                </div>
+                
+                <div class="explanation-card">
+                    <h4>🎯 使い分けの判断基準</h4>
+                    <p>タスクの規模と性質で判断します。</p>
+                    <ul>
+                        <li><strong>Antigravity向き：</strong>新規開発、大規模変更、複数ファイル編集</li>
+                        <li><strong>Gemini CLI向き：</strong>バグ修正、小規模修正、スクリプト作成</li>
+                    </ul>
+                </div>
+                
+                <div class="explanation-card">
+                    <h4>💰 コスト最適化のコツ</h4>
+                    <p>無料枠を最大限活用するためのテクニック。</p>
+                    <ul>
+                        <li>大きなタスクから着手（Antigravity）</li>
+                        <li>制限到達後はCLIで細かい作業</li>
+                        <li>翌日にクォータ回復後、再びIDEへ</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 用語解説 -->
+        <section class="glossary-section fade-in">
+            <h2>📚 用語解説</h2>
+            
+            <div class="glossary-item">
+                <h4>🚀 Antigravity（アンチグラビティ）</h4>
+                <p>Googleが提供するAI搭載のクラウドIDE。マルチエージェントシステムにより、複雑な開発タスクを自律的に処理できます。名前は「重力に逆らう」＝従来の開発の制約を超えるという意味が込められています。</p>
+            </div>
+            
+            <div class="glossary-item">
+                <h4>⌨️ Gemini CLI</h4>
+                <p>Googleの大規模言語モデル「Gemini」をコマンドラインから利用できるツール。ターミナルから直接AIに指示を出し、コード生成やファイル操作を行えます。</p>
+            </div>
+            
+            <div class="glossary-item">
+                <h4>🎵 バイブコーディング（Vibe Coding）</h4>
+                <p>2024年頃から広まった開発スタイル。AIに「こんな感じで」と雰囲気（Vibe）を伝えてコードを生成させる手法。厳密な仕様書よりも、対話的なやり取りで開発を進めます。</p>
+            </div>
+            
+            <div class="glossary-item">
+                <h4>📋 PoC（Proof of Concept）</h4>
+                <p>概念実証。アイデアが技術的に実現可能かを検証するための試作品やデモ。本格開発の前に作成し、フィードバックを得るために使用します。</p>
+            </div>
+            
+            <div class="glossary-item">
+                <h4>🔄 Rolling Quota / Rate Limit</h4>
+                <p>APIやサービスの利用制限方式。Rolling Quotaは一定期間内の累積使用量で制限、Rate Limitは単位時間あたりのリクエスト数で制限します。</p>
+            </div>
+        </section>
+
+        <!-- 推奨ワークフロー -->
+        <section class="workflow-section fade-in">
+            <h2>🔄 推奨ワークフロー例</h2>
+            <div class="workflow-steps">
+                <div class="workflow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>アイデア → 要件定義</h4>
+                        <p>Antigravityで要件を整理し、プロジェクト構造を設計。AIと対話しながら仕様を固めます。</p>
+                        <span class="step-tool antigravity">✈️ Antigravity</span>
+                    </div>
+                </div>
+                
+                <div class="workflow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>PoC開発・コア機能実装</h4>
+                        <p>主要機能のコード生成と基本的な動作確認をIDE内で完結させます。</p>
+                        <span class="step-tool antigravity">✈️ Antigravity</span>
+                    </div>
+                </div>
+                
+                <div class="workflow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>バグ修正・微調整</h4>
+                        <p>細かいバグ修正やUI調整はCLIで素早く対応。ターミナルから直接修正指示を出します。</p>
+                        <span class="step-tool gemini">⌨️ Gemini CLI</span>
+                    </div>
+                </div>
+                
+                <div class="workflow-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>ドキュメント・仕上げ</h4>
+                        <p>README作成、コメント追加、コード整形などの仕上げ作業をCLIで効率的に処理。</p>
+                        <span class="step-tool gemini">⌨️ Gemini CLI</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- まとめ -->
+        <section class="explanation-section fade-in">
+            <h2>✅ まとめ</h2>
+            <div style="padding: 20px; background: #e3f2fd; border-radius: 12px; border-left: 5px solid var(--primary-color);">
+                <p style="font-size: 1.1rem; margin-bottom: 15px;">
+                    <strong>IDE（Antigravity）とCLI（Gemini CLI）は競合ではなく補完関係にあります。</strong>
+                </p>
+                <ul style="padding-left: 20px;">
+                    <li style="margin-bottom: 10px;"><strong>大きく作る時</strong>はAntigravityで俯瞰的に開発</li>
+                    <li style="margin-bottom: 10px;"><strong>細かく直す時</strong>はGemini CLIで素早く対応</li>
+                    <li style="margin-bottom: 10px;"><strong>無料枠の制限</strong>は両ツールを切り替えて回避</li>
+                    <li><strong>開発フェーズ</strong>に応じて最適なツールを選択</li>
+                </ul>
+                <p style="margin-top: 20px; font-weight: bold; color: var(--primary-color);">
+                    🎯 両方のツールを使いこなして、バイブコーディングの生産性を最大化しましょう！
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>📅 作成日: 2025年12月</p>
+            <p>🔗 参考: <a href="https://ai.google.dev/" target="_blank">Google AI for Developers</a></p>
+            <p style="margin-top: 20px; font-size: 0.9rem;">
+                このページはバイブコーディング運用戦略の解説資料です。
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // スクロールアニメーション
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
